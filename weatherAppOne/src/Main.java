@@ -84,13 +84,13 @@ public class Main extends Application {
         fBtn.setShape(new Circle(60));
         fBtn.setMinSize(120, 120);
         fBtn.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 30px;");
-        fBtn.setOnAction(e -> showOutfitRecommendation("F"));
+        fBtn.setOnAction(e -> showOutfitRec("F"));
 
         Button cBtn = new Button("Celsius Temperature");
         cBtn.setShape(new Circle(60));
         cBtn.setMinSize(120, 120);
         cBtn.setStyle("-fx-background-color: red; -fx-text-fill: white; -fx-font-size: 30px;");
-        cBtn.setOnAction(e -> showOutfitRecommendation("C"));
+        cBtn.setOnAction(e -> showOutfitRec("C"));
 
         temps.getChildren().addAll(fBtn, cBtn);
         s3.setCenter(temps);
@@ -222,9 +222,9 @@ public class Main extends Application {
         wardrobeDisplay.setText(wardrobe.getAllItems());
     }
 
-    private void showOutfitRecommendation(String unit) {
-        WeatherData weather = readWeatherFromCSV("weather_data.csv", "Phoenix-AZ");
-        String recommendation = generateOutfitRecommendation(weather, unit);
+    private void showOutfitRec(String unit) {
+        WeatherData weather = readCSVWeather("weather_data.csv", "Phoenix-AZ");
+        String recommendation = createOutfit(weather, unit);
         BorderPane s4 = (BorderPane) screen4.getRoot();
         TextArea outfitBox = (TextArea) s4.getCenter();
         outfitBox.setText(recommendation);
@@ -232,7 +232,7 @@ public class Main extends Application {
     }
 
     //based on the temperature, suggest an outfit
-    private String generateOutfitRecommendation(WeatherData weather, String tempUnit) {
+    private String createOutfit(WeatherData weather, String tempUnit) {
         String output = "";
         output += "OUTFIT RECOMMENDATION\n";
 
@@ -266,9 +266,9 @@ public class Main extends Application {
             } else if (tempC < 15) {
                 output += "It's COOL.\nConsider Wearing: Light jacket, jeans, comfy shoes.\n";
             } else if (tempC < 23) {
-                output += "It's MILD.\nConsider Wearing: Tshirt, jeans, sneakers.\n";
+                output += "It's MILD.\nConsider Wearing: Tshirt, Light sweater, jeans, sneakers.\n";
             } else {
-                output += "It's HOT.\nConsider Wearing: Tank top, shorts, sandals.\n";
+                output += "It's HOT.\nConsider Wearing: Tank top or light shirt, leggings or shorts, casual shoes.\n";
             }
         } else {
             if (tempF < 32) {
@@ -276,9 +276,9 @@ public class Main extends Application {
             } else if (tempF < 59) {
                 output += "It's COOL.\nConsider Wearing: Light jacket, jeans, comfy shoes.\n";
             } else if (tempF < 73) {
-                output += "It's MILD.\nConsider Wearing: Tshirt, jeans, sneakers.\n";
+                output += "It's MILD.\nConsider Wearing: Tshirt, Light sweater, jeans, sneakers.\n";
             } else {
-                output += "It's HOT.\nConsider Wearing: Tank top, shorts, sandals.\n";
+                output += "It's HOT.\nConsider Wearing: Tank top or light shirt, leggings or shorts, casual shoes.\n";
             }
         }
         output += "\nYour Current Wardrobe! Choose from what is available based on the suggested outfit:\n";
@@ -286,9 +286,9 @@ public class Main extends Application {
         return output;
     }
 
-    private WeatherData readWeatherFromCSV(String fileName, String cityName) {
+    private WeatherData readCSVWeather(String fileName, String cityName) {
         String file = "C:\\Users\\aishw\\OneDrive\\Javaproject\\weatherAppOne\\src\\main\\" + fileName;
-        //AI created try with resources block (line 292-308)
+        //AI created try with resources block (line 292-315)
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             reader.readLine(); //bufferredreader  skip header
             String line;
