@@ -1,4 +1,4 @@
-//lines 4-232 were created using the VSCode Copilot and youtube playlist:
+//lines 4-231 were created using the VSCode Copilot and youtube playlist:
 //https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG
 //combo box code was created with the help of google and aishwarya's mother
 import javafx.application.Application;
@@ -144,7 +144,6 @@ public class Main extends Application {
 
         String[] clothing = {"Shoes", "Jeans", "Tops"};
         ObservableList<String> options = FXCollections.observableArrayList(
-                "Select Color",
                 "Blue",
                 "Green",
                 "Pink",
