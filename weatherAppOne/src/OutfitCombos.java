@@ -4,7 +4,7 @@ public class OutfitCombos {
     private String color;
     private String type;
 
-    //constructors
+    //constructors that child classes will inherit to get each type of clothes and display with the tostring
     public OutfitCombos() {
         this.quantity = 0;
         this.color = "";
