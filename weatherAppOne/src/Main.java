@@ -1,4 +1,4 @@
-//lines 4-231 were created using the VSCode Copilot and youtube playlist:
+//lines 4-240 were created using the chatgpt and youtube playlist:
 //https://www.youtube.com/playlist?list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG
 //combo box code was created with the help of google and aishwarya's mother
 import javafx.application.Application;
@@ -141,7 +141,10 @@ public class Main extends Application {
 
         VBox items = new VBox(20);
         items.setPadding(new Insets(40));
-
+        // Instruction label
+        Label instructions = new Label("Please choose a color from the dropdown for each item:");
+        instructions.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        items.getChildren().add(instructions);
         String[] clothing = {"Shoes", "Jeans", "Tops"};
         ObservableList<String> options = FXCollections.observableArrayList(
                 "Blue",
@@ -170,7 +173,7 @@ public class Main extends Application {
             ComboBox<String> comboBox = new ComboBox<>(options);
 
             // Optional: Set a default value
-            comboBox.setValue("Select Color");
+           // comboBox.setValue("Choose Color");
 //   final String selectedColor ="";
             // Add a listener to handle selection changes
             comboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -181,17 +184,23 @@ public class Main extends Application {
             Button add = new Button("+");
             add.setStyle("-fx-background-color: #004c99; -fx-text-fill: white; -fx-font-size: 14px;");
             add.setOnAction(e -> {
-                //  String color = colorInput.getText().trim();
-                String color = selectedColor;
-                if (!color.isEmpty()) {
-                    switch (item) {
-                        case "Shoes": wardrobe.addShoes(color); break;
-                        case "Jeans": wardrobe.addJeans(color); break;
-                        case "Tops": wardrobe.addTops(color); break;
-                    }
-                    // colorInput.clear();
-                    updateWardrobeDisplay(s5);
+                String color = comboBox.getValue();
+
+                // If user never chose a color OR left placeholder → do nothing
+                if (color == null || color.equals("Select Color")) {
+                    return;
                 }
+
+                switch (item) {
+                    case "Shoes": wardrobe.addShoes(color); break;
+                    case "Jeans": wardrobe.addJeans(color); break;
+                    case "Tops": wardrobe.addTops(color); break;
+                }
+
+                updateWardrobeDisplay(s5);
+
+                // reset selection to placeholder
+                comboBox.setValue("Select Color");
             });
 
             section.getChildren().addAll(name, comboBox, add);
@@ -285,10 +294,9 @@ public class Main extends Application {
         return output;
     }
 
-    //uses the weather_data csv and file path to split into different parts based on date, location, temp etc and get each part of the CSV data
     private WeatherData readCSVWeather(String fileName, String cityName) {
         String file = "C:\\Users\\aishw\\OneDrive\\Javaproject\\weatherAppOne\\src\\main\\" + fileName;
-        //AI created try with resources block (line 293-316)
+        //AI created try with resources block (line 300-323)
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             reader.readLine(); //bufferredreader  skip header
             String line;
