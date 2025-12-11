@@ -62,6 +62,7 @@ public class Wardrobe {
     public String getAllItems() {
         String output = "";
 
+        //if there is a shoe added then it will output with the tostring (with the formatted color etc)
         if (!(shoes.equals(""))) {
             output += "SHOES:\n";
             for (Shoes s : shoes) {
@@ -69,6 +70,7 @@ public class Wardrobe {
             }
         }
 
+        //if there is a jean added then it will output with the tostring (with the formatted color etc)
         if (!(jeans.equals(""))) {
             output += "JEANS:\n";
             for (Jeans j : jeans) {
@@ -76,6 +78,7 @@ public class Wardrobe {
             }
         }
 
+        //if there is a top added then it will output with the tostring (with the formatted color etc)
         if (!(tops.equals(""))) {
             output += "TOPS:\n";
             for (Tops t : tops) {
