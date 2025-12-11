@@ -182,7 +182,7 @@ public class Main extends Application {
             Button add = new Button("+");
             add.setStyle("-fx-background-color: #004c99; -fx-text-fill: white; -fx-font-size: 14px;");
             add.setOnAction(e -> {
-              //  String color = colorInput.getText().trim();
+                //  String color = colorInput.getText().trim();
                 String color = selectedColor;
                 if (!color.isEmpty()) {
                     switch (item) {
@@ -190,7 +190,7 @@ public class Main extends Application {
                         case "Jeans": wardrobe.addJeans(color); break;
                         case "Tops": wardrobe.addTops(color); break;
                     }
-                   // colorInput.clear();
+                    // colorInput.clear();
                     updateWardrobeDisplay(s5);
                 }
             });
@@ -224,7 +224,7 @@ public class Main extends Application {
 
     private void showOutfitRec(String unit) {
         WeatherData weather = readCSVWeather("weather_data.csv", "Phoenix-AZ");
-        String recommendation = createOutfit(weather, unit);
+        String recommendation = outfitOutput(weather, unit);
         BorderPane s4 = (BorderPane) screen4.getRoot();
         TextArea outfitBox = (TextArea) s4.getCenter();
         outfitBox.setText(recommendation);
@@ -232,7 +232,7 @@ public class Main extends Application {
     }
 
     //based on the temperature, suggest an outfit
-    private String createOutfit(WeatherData weather, String tempUnit) {
+    private String outfitOutput(WeatherData weather, String tempUnit) {
         String output = "";
         output += "OUTFIT RECOMMENDATION\n";
 
