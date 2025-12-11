@@ -1,8 +1,10 @@
 public class OutfitCombos {
+    //intitialize 3 variables that the user selects from update wardrobe page
     private int quantity;
     private String color;
     private String type;
 
+    //constructors
     public OutfitCombos() {
         this.quantity = 0;
         this.color = "";
