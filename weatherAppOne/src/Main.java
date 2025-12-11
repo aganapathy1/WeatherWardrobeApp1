@@ -264,9 +264,9 @@ public class Main extends Application {
             if (tempC < 0) {
                 output += "It's COLD!\nConsider Wearing: Heavy jacket, jeans, boots, warm layers.\n";
             } else if (tempC < 15) {
-                output += "It's COOL.\nConsider Wearing: Light jacket, jeans, comfy shoes.\n";
+                output += "It's COOL.\nConsider Wearing: Light jacket, jeans, casual shoes.\n";
             } else if (tempC < 23) {
-                output += "It's MILD.\nConsider Wearing: Tshirt, Light sweater, jeans, sneakers.\n";
+                output += "It's MILD.\nConsider Wearing: Light sweater, jeans, sneakers.\n";
             } else {
                 output += "It's HOT.\nConsider Wearing: Tank top or light shirt, leggings or shorts, casual shoes.\n";
             }
@@ -274,9 +274,9 @@ public class Main extends Application {
             if (tempF < 32) {
                 output += "It's COLD!\nConsider Wearing: Heavy jacket, jeans, boots, warm layers.\n";
             } else if (tempF < 59) {
-                output += "It's COOL.\nConsider Wearing: Light jacket, jeans, comfy shoes.\n";
+                output += "It's COOL.\nConsider Wearing: Light jacket, jeans, casual shoes.\n";
             } else if (tempF < 73) {
-                output += "It's MILD.\nConsider Wearing: Tshirt, Light sweater, jeans, sneakers.\n";
+                output += "It's MILD.\nConsider Wearing: Light sweater, jeans, sneakers.\n";
             } else {
                 output += "It's HOT.\nConsider Wearing: Tank top or light shirt, leggings or shorts, casual shoes.\n";
             }
