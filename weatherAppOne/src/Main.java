@@ -286,9 +286,10 @@ public class Main extends Application {
         return output;
     }
 
+    //uses the weather_data csv and file path to split into different parts based on date, location, temp etc and get each part of the CSV data
     private WeatherData readCSVWeather(String fileName, String cityName) {
         String file = "C:\\Users\\aishw\\OneDrive\\Javaproject\\weatherAppOne\\src\\main\\" + fileName;
-        //AI created try with resources block (line 292-315)
+        //AI created try with resources block (line 293-316)
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             reader.readLine(); //bufferredreader  skip header
             String line;
