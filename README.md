@@ -1,5 +1,9 @@
-javac --module-path "C:\Users\aishw\OneDrive\Javaproject\weatherAppOne\Java\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -d out (Get-Content .\sources.txt)  
+# Weather Wardrobe App
 
-java --module-path "C:\Users\aishw\OneDrive\Javaproject\weatherAppOne\Java\javafx-sdk-25.0.1\lib" --add-modules javafx.controls,javafx.fxml -cp out AppLauncher
+## How to Run
+This is a static web application. You can run it by simply opening `index.html` in your web browser.
 
-**change path to your local path and change CSV files to local
+## Features
+- Weather-based outfit recommendations
+- Digital Wardrobe
+- Travel Packing Planner
